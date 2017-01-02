@@ -1,0 +1,13 @@
+(define (divideable x)
+  (or 
+    (= 0 (modulo x 5))
+    (= 0 (modulo x 3))))
+
+(define (sum acc list)
+  (if (null? list)
+    acc
+    (sum 
+      (+ acc (car list))
+      (cdr list))))
+
+(display (sum 0 (filter divideable (iota 1000))))

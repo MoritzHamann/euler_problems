@@ -1,0 +1,21 @@
+(define (sum acc list)
+  (if (null? list)
+    acc
+    (sum 
+      (+ acc (car list))
+      (cdr list))))
+
+(define (even x)
+  (= 0 (modulo x 2)))
+
+(define (evenfibs upto)
+  (filter even (fib upto 0 1)))
+
+(define (fib upto x y)
+  (if (< (+ x y) upto)
+    (cons (+ x y) (fib upto y (+ x y)))
+    #nil))
+
+
+(display (sum 0 (evenfibs 4000000)))
+(newline)
